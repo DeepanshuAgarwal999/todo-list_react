@@ -122,7 +122,7 @@ const Todo = () => {
             className="  text-black border max-w-7xl px-2 relative  border-white/50 bg-white/10  shadow-xl shadow-orange-50/20  text-xl flex items-center w-[full] mx-auto mt-10 py-5 "
           >
             <div className="flex mx-auto w-full justify-evenly gap-x-2  ">
-              <h1 className=" w-[70%]  bg-red-400 p-5 flex md:text-2xl text-lg overflow-auto  h-auto flex-col text-white gap-y-5">
+              <h1 className=" w-[70%]  pt-3 px-2 flex md:text-2xl text-lg overflow-auto  h-auto flex-col text-white gap-y-5">
                 {e.task}
               </h1>
               <p className="md:text-sm text-xs absolute right-[1%]  bottom-0 md:w-[250px] w-[200px] whitespace-nowrap text-ellipsis overflow-hidden text-red-800">
