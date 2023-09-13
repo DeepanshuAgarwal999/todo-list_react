@@ -8,11 +8,12 @@ const Todo = () => {
   const [editing, setEditing] = useState(null);
   const [toggle, settoggle] = useState(false);
   const ref = useRef();
-  const [addtask, setAddtask] = useState(() => {
-    const localvalue = localStorage.getItem("Todo");
-    if (localvalue.length === null) return [];
-    return JSON.parse(localvalue);
-  });
+  // const [addtask, setAddtask] = useState(() => {
+  //   const localvalue = localStorage.getItem("Todo");
+  //   if (localvalue.length === null) return [];
+  //   return JSON.parse(localvalue);
+  // });
+  const [addtask, setAddtask] = useState([])
   const handlesubmit = (e) => {
     e.preventDefault();
     if (!task) {
@@ -53,13 +54,13 @@ const Todo = () => {
 
     // setTask("");
   };
-  useEffect(() => {
-    // const localvalue = localStorage.getItem("Todo");
-    // if (localvalue.length === null) return [];
+  // useEffect(() => {
+  //   // const localvalue = localStorage.getItem("Todo");
+  //   // if (localvalue.length === null) return [];
 
-    localStorage.setItem("Todo", JSON.stringify(addtask));
-    // return JSON.parse(localvalue);
-  }, [addtask]);
+  //   // localStorage.setItem("Todo", JSON.stringify(addtask));
+  //   // return JSON.parse(localvalue);
+  // }, [addtask]);
   const deleteTodo = (id) => {
     setAddtask((e) => {
       return e.filter((todo) => todo.id !== id);
@@ -114,7 +115,7 @@ const Todo = () => {
           </div>
         </div>
       </form>
-      {addtask.map((e, i) => {
+      {addtask?.map((e, i) => {
         return (
           <div
             key={i}
