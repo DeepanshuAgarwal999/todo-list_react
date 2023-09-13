@@ -25,7 +25,7 @@ const Todo = () => {
     else if (task && toggle) {
       setAddtask(
         addtask.map((curr) => {
-          if (curr.id == editing) {
+          if (curr.id === editing) {
             return { ...curr, task: task };
           }
           return curr;
