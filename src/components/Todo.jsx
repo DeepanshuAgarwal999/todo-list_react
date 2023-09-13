@@ -76,7 +76,7 @@ const Todo = () => {
   const editTodo = (id) => {
     console.log(id);
     settoggle(true);
-    const edit = addtask.find((i) => i.id == id);
+    const edit = addtask.find((i) => i.id === id);
     setTask(edit.task);
     setEditing(id);
     ref.current.focus();
