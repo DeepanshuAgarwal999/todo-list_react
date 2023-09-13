@@ -16,10 +16,10 @@ const Todo = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     if (!task) {
-     toast.warn("Field can't be empty!", {
-       position: "top-right",
-       theme: "dark",
-     });
+      toast.warn("Field can't be empty!", {
+        position: "top-right",
+        theme: "dark",
+      });
     }
     // console.log(<tas></tas>k);
     else if (task && toggle) {
@@ -49,7 +49,6 @@ const Todo = () => {
         theme: "dark",
       });
       setTask("");
-
     }
 
     // setTask("");
