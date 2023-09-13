@@ -83,60 +83,62 @@ const Todo = () => {
   };
 
   return (
-    <section className="bg-slate-900 h-screen overflow-y-scroll text-white">
-      <div className="animate-pulse duration-1000 mt-7">
+    <section className="bg-slate-900 h-screen w-full overflow-y-scroll px-2 text-white">
+      <div className="animate-pulse duration-1000 mt-7 ">
         <h1 className="text-5xl text-center py-4 animate-bounce  duration-500 ">
           Todo list
         </h1>
       </div>
       <form onSubmit={handlesubmit}>
-        <div className="w-[70%] px-4 mb-20 justify-around flex items-center  my-10 left-[15%]  mx-auto">
-          <div className="py-4">
+        <div className=" max-w-7xl px-2   mb-20 justify-between md:flex items-center gap-x-2 mt-10   mx-auto">
+          <div className="py-4 md:w-[80%] w-full">
             <input
               ref={ref}
               type="text"
               placeholder="Enter your task"
-              className="px-2 py-4 rounded-lg font-medium  text-black outline-yellow-500 outline-8 text-xl  w-[1000px]"
+              className="px-2 py-4 rounded-lg font-medium  text-black outline-yellow-500 outline-8 text-xl mx-auto  w-[100%]"
               value={task}
               onChange={(e) => setTask(e.target.value)}
             />
           </div>
           <ToastContainer pauseOnFocusLoss={false} limit={2} />
-          {toggle ? (
-            <button className="border border-white p-4 text-xl text-green-500 bg-orange-300 hover:bg-blue-400 font-semibold hover:text-white">
-              Save Change
-            </button>
-          ) : (
-            <button className="border-2  border-white py-4 px-7 text-xl text-green-500 bg-orange-300 hover:bg-blue-400 font-semibold hover:text-white">
-              Add task
-            </button>
-          )}
+          <div className="w-[150px] mx-auto">
+            {toggle ? (
+              <button className="border border-white mx-auto w-[150px] h-[60px] text-xl text-green-500 bg-orange-300 hover:bg-blue-400 font-semibold hover:text-white">
+                Save Change
+              </button>
+            ) : (
+              <button className="border-2  border-white  mx-auto w-[150px] h-[60px] text-xl md:mt-0 mt-10 -mb-[40px] md:mb-0 text-green-500 bg-orange-300 hover:bg-blue-400 font-semibold hover:text-white">
+                Add task
+              </button>
+            )}
+          </div>
         </div>
       </form>
       {addtask.map((e, i) => {
         return (
           <div
             key={i}
-            className="  text-black border border-white/50 bg-white/10  shadow-xl shadow-orange-50/20  text-xl flex items-center w-[67%] mx-auto mt-10 py-5 relative "
+            className="  text-black border max-w-7xl px-2 relative  border-white/50 bg-white/10  shadow-xl shadow-orange-50/20  text-xl flex items-center w-[full] mx-auto mt-10 py-5 "
           >
-            <div className="flex w-full justify-around gap-x-5 ">
-              <h1 className=" w-[70%]  p-4 flex text-2xl overflow-auto  h-auto flex-col text-white gap-y-5">
+            <div className="flex mx-auto w-full justify-evenly gap-x-2  ">
+              <h1 className=" w-[70%]  bg-red-400 p-5 flex md:text-2xl text-lg overflow-auto  h-auto flex-col text-white gap-y-5">
                 {e.task}
               </h1>
-              <p className="text-sm absolute bottom-0 left-11 text-red-800">
+              <p className="md:text-sm text-xs absolute right-[1%]  bottom-0 md:w-[250px] w-[200px] whitespace-nowrap text-ellipsis overflow-hidden text-red-800">
                 <span className="text-white">Created on &nbsp;</span>
                 {e.date}
               </p>
-              <div className="flex w-[20%] justify-around">
+              <div className="flex md:flex-row flex-col gap-y-2 py-1 items-center gap-x-4 ">
                 <button
                   onClick={() => deleteTodo(e.id)}
-                  className="border hover:animate-pulse border-white py-4 px-8 text-xl text-green-500  hover:bg-red-500 font-semibold hover:text-white"
+                  className="border hover:animate-pulse border-white  mx-auto md:w-[150px] w-[100px] md:h-[60px] h-[40px]  text-xl text-green-500  hover:bg-red-500 font-semibold hover:text-white"
                 >
                   Delete
                 </button>
                 <button
                   onClick={() => editTodo(e.id)}
-                  className="border hover:animate-pulse border-white py-4 px-8 text-xl text-green-500  hover:bg-blue-400 font-semibold hover:text-white"
+                  className="border hover:animate-pulse border-white  mx-auto md:w-[150px] w-[100px] md:h-[60px] h-[40px] text-xl text-green-500  hover:bg-blue-400 font-semibold hover:text-white"
                 >
                   Edit
                 </button>
